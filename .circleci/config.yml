@@ -12,7 +12,7 @@ jobs:
     docker:
       - image: cimg/python:3.9.5
     steps:
-      - checkout
+      - checkout:
           path: ~/project
       - attach_workspace:
           at: ~/project
