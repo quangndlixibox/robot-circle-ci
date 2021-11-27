@@ -127,23 +127,8 @@ TC_PF_64 Upload image - Verify user can upload image < 5MB
 TC_PF_65 Upload image - Verify user can upload image with JPEG
     [Tags]    Change avatar
     Login and get access token    ${LOGIN_EMAIL_11}
-    ${binary}  Get Binary File  ../Resources/avatar<5mb.jpeg
+    ${binary}  Get Binary File  ${URL_IMAGE}
     ${avatar}=  Evaluate   base64.b64encode($binary)  modules=base64
     ${avatar_jpeg} =   Catenate    data:image/jpeg;base64,    ${avatar}
     ${response}    Change avatar    ${avatar_jpeg}
 
-TC_PF_66 Upload image - Verify user can upload image with PNG
-    [Tags]    Change avatar
-    Login and get access token    ${LOGIN_EMAIL_11}
-    ${binary}  Get Binary File  ../Resources/avtar pnj.png
-    ${avatar}=  Evaluate   base64.b64encode($binary)  modules=base64
-    ${avatar_jpeg} =   Catenate    data:image/jpeg;base64,    ${avatar}
-    ${response}    Change avatar    ${avatar_jpeg}
-
-TC_PF_67 Upload image - Verify user can upload image with gif
-    [Tags]    Change avatar
-    Login and get access token    ${LOGIN_EMAIL_11}
-    ${binary}  Get Binary File  ../Resources/avatar_gif.gif
-    ${avatar}=  Evaluate   base64.b64encode($binary)  modules=base64
-    ${avatar_jpeg} =   Catenate    data:image/jpeg;base64,    ${avatar}
-    ${response}    Change avatar    ${avatar_jpeg}

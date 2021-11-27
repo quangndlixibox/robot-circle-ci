@@ -33,3 +33,4 @@ ${RAINDROP}             RAINDROP
 ${GIFT_BOX}             Okame Super Fruit Cleansing Balm - 7ml
 ${FREE_SHIP}            0
 ${LOGIN_EMAIL_Hoa}      hoa.nguyen@lixibox.com
+${URL_IMAGE}            ../Resources/avatar<5mb.jpeg
