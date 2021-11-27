@@ -119,16 +119,10 @@ TC_PF_35 Verify user can add new address successful
 TC_PF_64 Upload image - Verify user can upload image < 5MB
     [Tags]    Change avatar
     Login and get access token    ${LOGIN_EMAIL_11}
-    ${binary}  Get Binary File  ../Resources/avatar<5mb.jpeg
+    ${binary}  Get Binary File   ${URL_IMAGE}
     ${avatar}=  Evaluate   base64.b64encode($binary)  modules=base64
     ${avatar_jpeg} =   Catenate    data:image/jpeg;base64,    ${avatar}
     ${response}    Change avatar    ${avatar_jpeg}
 
-TC_PF_65 Upload image - Verify user can upload image with JPEG
-    [Tags]    Change avatar
-    Login and get access token    ${LOGIN_EMAIL_11}
-    ${binary}  Get Binary File  ${URL_IMAGE}
-    ${avatar}=  Evaluate   base64.b64encode($binary)  modules=base64
-    ${avatar_jpeg} =   Catenate    data:image/jpeg;base64,    ${avatar}
-    ${response}    Change avatar    ${avatar_jpeg}
+
 
