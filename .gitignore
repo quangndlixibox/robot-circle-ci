@@ -1,0 +1,4 @@
+# ignore folders
+venv
+Results
+installed_requirements

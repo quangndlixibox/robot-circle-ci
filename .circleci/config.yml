@@ -1,0 +1,64 @@
+version: 2.1
+
+jobs:
+  test:
+    parallelism: 4
+    shell: /bin/bash --login
+    resource_class: large
+    working_directory: ~/project
+    environment:
+      API_URL: https://api.lxb-qa.cf
+      PYTHONPATH: /home/circleci/project/py_modules
+    docker:
+      - image: cimg/python:3.9.5
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/project
+      - restore_cache:
+          name: Restore requirements cache
+          keys:
+            - pip-requirements-{{ checksum "requirements.txt" }}
+            - pip-requirements-
+      - run:
+          name: Install requirements
+          command: |
+            if [ ! -d py_modules  ]; then
+              python3.9 -m pip install --upgrade pip
+              python3.9 -m pip install -r requirements.txt -t $PYTHONPATH
+            fi
+      - save_cache:
+          name: Save requirements cache
+          key: pip-requirements-{{ checksum "requirements.txt" }}
+          paths:
+            - py_modules
+
+      - run:
+          name: Run test
+          command: |
+            circleci tests glob "**/TestCase/*.robot" | circleci tests split > test_files.txt
+            python3.9 -m robot -v URL:$API_URL -d Results $(cat test_files.txt)
+
+      - store_artifacts:
+          path: Results
+          destination: results
+
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - py_modules
+
+workflows:
+  commit:
+    jobs:
+      - test
+  hourly:
+    jobs:
+      - test
+    triggers:
+      - schedule:
+          cron: "30 * * * *"
+          filters:
+            branches:
+              only:
+                - master

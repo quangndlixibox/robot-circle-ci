@@ -1,0 +1,68 @@
+[
+  {
+    "authen": [
+      {
+        "error1": {
+          "email": ["không hợp lệ"],
+          "password": ["quá ngắn (tối thiểu 8 ký tự)"],
+          "last_name": ["không được bỏ trống."]
+        }
+      },
+      {
+        "error2": {
+          "password": ["quá ngắn (tối thiểu 8 ký tự)"],
+          "last_name": ["không được bỏ trống."]
+        }
+      },
+      {
+        "error3": {
+          "password": ["quá ngắn (tối thiểu 8 ký tự)"],
+          "first_name": ["không được bỏ trống."],
+          "last_name": ["không được bỏ trống."]
+        }
+      },
+      {
+        "error4": {
+          "first_name": ["không được bỏ trống."],
+          "last_name": ["không được bỏ trống."]
+        }
+      },
+      {
+        "error5": {
+          "first_name": ["không được bỏ trống."],
+          "last_name": ["không được bỏ trống."]
+        }
+      },
+      {
+        "error6": {
+          "email": ["không hợp lệ"]
+        }
+      },
+      {
+        "error7": {
+          "password": ["quá ngắn (tối thiểu 8 ký tự)"]
+        }
+      }
+    ]
+  },
+  {
+    "discount_code": {
+      "code_for_gold": {
+        "code": "TESTGOLDMEMBER",
+        "error_msg": "Mã khuyến mãi này chỉ áp dụng cho thành viên gold"
+      },
+      "code_for_silver": {
+        "code": "TESTSILVERMEMBER",
+        "error_msg": "Mã khuyến mãi này chỉ áp dụng cho thành viên silver"
+      },
+      "code_for_diamond": {
+        "code": "TESTDIAMONDMEMBER",
+        "error_msg": "Mã khuyến mãi này chỉ áp dụng cho thành viên diamond"
+      },
+      "code_for_expired": {
+        "code": "LXMASCARA",
+        "error_msg": "Bạn không thể sử dụng mã khuyến mãi này vì quà tặng đã hết"
+      }
+    }
+  }
+]
