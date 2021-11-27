@@ -13,6 +13,7 @@ jobs:
       - image: cimg/python:3.9.5
     steps:
       - checkout
+          path: ~/project
       - attach_workspace:
           at: ~/project
       - restore_cache:
